@@ -4,13 +4,13 @@ import type { BotEventBus } from '@zaloridebot/bot-core';
 import { registerBotRoutes } from './routes/bot-routes.js';
 import { registerBotEventSocket } from './ws/bot-events-socket.js';
 
-export type BotSnapshot = {
+export type DashboardSnapshot = {
   state: string;
   groups: Array<{ id: string; name: string; isPinned: boolean; defaultReply?: string }>;
 };
 
 type Dependencies = {
-  getSnapshot(): BotSnapshot;
+  getSnapshot(): DashboardSnapshot;
   startBot?(): Promise<void>;
   stopBot?(): Promise<void>;
   saveGroupConfig?(groupId: string, payload: unknown): Promise<void>;

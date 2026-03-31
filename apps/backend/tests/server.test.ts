@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { BotSnapshot } from '@zaloridebot/bot-core';
+import type { DashboardSnapshot } from '../src/server.js';
 import { buildServer } from '../src/server.js';
 
 async function waitFor(check: () => boolean, timeoutMs = 500) {
@@ -18,7 +18,7 @@ async function waitFor(check: () => boolean, timeoutMs = 500) {
 
 describe('backend server', () => {
   it('returns the current bot state', async () => {
-    const snapshot: BotSnapshot = { state: 'idle', groups: [] };
+    const snapshot: DashboardSnapshot = { state: 'idle', groups: [] };
     const server = buildServer({
       getSnapshot() {
         return snapshot;

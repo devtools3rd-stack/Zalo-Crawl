@@ -11,6 +11,7 @@ describe('fetchBotSnapshot', () => {
     vi.stubGlobal(
       'fetch',
       vi.fn().mockResolvedValue({
+        ok: true,
         json: async () => snapshot,
       }),
     );
@@ -26,7 +27,7 @@ describe('startBot', () => {
   });
 
   it('posts to /api/bot/start', async () => {
-    const mockFetch = vi.fn().mockResolvedValue({});
+    const mockFetch = vi.fn().mockResolvedValue({ ok: true });
     vi.stubGlobal('fetch', mockFetch);
 
     await startBot();
@@ -41,7 +42,7 @@ describe('stopBot', () => {
   });
 
   it('posts to /api/bot/stop', async () => {
-    const mockFetch = vi.fn().mockResolvedValue({});
+    const mockFetch = vi.fn().mockResolvedValue({ ok: true });
     vi.stubGlobal('fetch', mockFetch);
 
     await stopBot();
@@ -56,7 +57,7 @@ describe('saveGroupConfig', () => {
   });
 
   it('puts to /api/groups/:groupId with json body', async () => {
-    const mockFetch = vi.fn().mockResolvedValue({});
+    const mockFetch = vi.fn().mockResolvedValue({ ok: true });
     vi.stubGlobal('fetch', mockFetch);
 
     await saveGroupConfig('group-1', { defaultReply: 'Hello!' });

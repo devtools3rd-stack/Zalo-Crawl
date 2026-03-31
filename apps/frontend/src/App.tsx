@@ -30,8 +30,8 @@ export default function App() {
   return (
     <main>
       <h1>ZaloRideBot Dashboard</h1>
-      <button onClick={() => void startBot()}>Start Bot</button>
-      <button onClick={() => void stopBot()}>Stop Bot</button>
+      <button onClick={async () => { await startBot(); const s = await fetchBotSnapshot(); setState(s.state); setGroups(s.groups); }}>Start Bot</button>
+      <button onClick={async () => { await stopBot(); const s = await fetchBotSnapshot(); setState(s.state); setGroups(s.groups); }}>Stop Bot</button>
       <BotStatusCard state={state} />
       <GroupConfigPanel
         groups={groups}
