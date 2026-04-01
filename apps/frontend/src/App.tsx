@@ -11,7 +11,7 @@ export default function App() {
         </div>
 
         <nav>
-          <ul className="nav-list" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+          <ul className="nav-list">
             <li>
               <a href="#" className="nav-link nav-link--active">
                 Dashboard
@@ -30,19 +30,14 @@ export default function App() {
           </ul>
         </nav>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0 10px' }}>
+        <div className="auto-pilot-status">
           <span className="status-dot" />
-          <span style={{ fontSize: '0.8rem', color: '#85f4bf', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            AUTO-PILOT ON
-          </span>
+          <span className="auto-pilot-label">AUTO-PILOT ON</span>
         </div>
 
         <div className="sidebar-footer">
           <button className="sidebar-action">Start Bot</button>
-          <button
-            className="sidebar-action"
-            style={{ background: 'rgba(255,255,255,0.04)', boxShadow: 'none', color: 'rgba(228,226,225,0.6)' }}
-          >
+          <button className="sidebar-action sidebar-action--secondary">
             Stop Bot
           </button>
         </div>
@@ -56,7 +51,7 @@ export default function App() {
             <p className="eyebrow">Live Monitoring</p>
             <h1>Dashboard</h1>
           </div>
-          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <div className="topbar-actions">
             <span className="topbar-status">
               <span className="status-dot" />
               42 Groups Active
@@ -105,7 +100,7 @@ export default function App() {
         </div>
 
         {/* Expanded Feed */}
-        <div style={{ marginTop: '22px' }}>
+        <div className="feed-wrapper">
           <ExpandedRideFeed />
         </div>
       </main>

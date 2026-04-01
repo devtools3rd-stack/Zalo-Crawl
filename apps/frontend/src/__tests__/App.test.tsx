@@ -3,12 +3,11 @@ import { describe, expect, it } from 'vitest';
 import App from '../App';
 
 describe('App', () => {
-  it('renders the dashboard brand and navigation', () => {
+  it('renders the dashboard sidebar with brand and navigation', () => {
     render(<App />);
     expect(screen.getByText('ZaloRideBot')).toBeInTheDocument();
-    // heading query avoids ambiguity with the nav link that also says "Dashboard"
     expect(screen.getByRole('heading', { name: 'Dashboard' })).toBeInTheDocument();
-    expect(screen.getByText('Live Ride Feed')).toBeInTheDocument();
+    expect(screen.getByText('42 Groups Active')).toBeInTheDocument();
   });
 
   it('renders the three stats cards', () => {
@@ -21,5 +20,10 @@ describe('App', () => {
   it('renders the Auto-Pilot status in sidebar', () => {
     render(<App />);
     expect(screen.getByText('AUTO-PILOT ON')).toBeInTheDocument();
+  });
+
+  it('renders the ExpandedRideFeed component', () => {
+    render(<App />);
+    expect(screen.getByRole('heading', { name: 'Live Ride Feed' })).toBeInTheDocument();
   });
 });
