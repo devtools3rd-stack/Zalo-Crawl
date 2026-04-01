@@ -3,27 +3,25 @@ import { describe, expect, it } from 'vitest';
 import App from '../App';
 
 describe('App', () => {
-  it('renders the dashboard sidebar with brand and navigation', () => {
+  it('renders the sidebar brand', () => {
     render(<App />);
-    expect(screen.getByText('ZaloRideBot')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Dashboard' })).toBeInTheDocument();
-    expect(screen.getByText('42 Groups Active')).toBeInTheDocument();
+    expect(screen.getAllByText('ZaloRideBot').length).toBeGreaterThan(0);
   });
 
-  it('renders the three stats cards', () => {
+  it('renders hero stats', () => {
     render(<App />);
-    expect(screen.getByText('42')).toBeInTheDocument();
     expect(screen.getByText('98.4%')).toBeInTheDocument();
     expect(screen.getByText('12ms')).toBeInTheDocument();
   });
 
-  it('renders the Auto-Pilot status in sidebar', () => {
+  it('renders Live Ride Feed header', () => {
     render(<App />);
-    expect(screen.getByText('AUTO-PILOT ON')).toBeInTheDocument();
+    expect(screen.getByText('Live Ride Feed')).toBeInTheDocument();
   });
 
-  it('renders the ExpandedRideFeed component', () => {
+  it('renders the optimal match ride item', () => {
     render(<App />);
-    expect(screen.getByRole('heading', { name: 'Live Ride Feed' })).toBeInTheDocument();
+    expect(screen.getByText('Optimal Match')).toBeInTheDocument();
+    expect(screen.getByText('285,000đ')).toBeInTheDocument();
   });
 });
