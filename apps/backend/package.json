@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json && node dist/src/index.js",
     "test": "vitest run",
     "lint": "tsc -p tsconfig.json --noEmit"
   },
