@@ -69,7 +69,7 @@ export default function App() {
               <span className="status-chip">active</span>
             </div>
             <div className="meter meter--large">
-              <span style={{ width: '84%' }} />
+              <span style={{ '--meter-fill': '84%' } as React.CSSProperties} />
             </div>
             <p className="stat-footnote">Trên 5 thành phố — HCM, HN, ĐN, CT, HP</p>
           </section>
@@ -81,7 +81,7 @@ export default function App() {
               <span className="status-chip">optimal</span>
             </div>
             <div className="meter meter--large">
-              <span style={{ width: '98.4%' }} />
+              <span style={{ '--meter-fill': '98.4%' } as React.CSSProperties} />
             </div>
             <p className="stat-footnote">Tỉ lệ accept thành công trong 24h qua</p>
           </section>
@@ -93,7 +93,7 @@ export default function App() {
               <span className="status-chip">fast</span>
             </div>
             <div className="meter meter--large">
-              <span style={{ width: '94%' }} />
+              <span style={{ '--meter-fill': '94%' } as React.CSSProperties} />
             </div>
             <p className="stat-footnote">Trung bình toàn hệ thống, mục tiêu &lt;20ms</p>
           </section>
