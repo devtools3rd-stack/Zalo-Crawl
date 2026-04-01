@@ -1,10 +1,8 @@
-import type { BotSnapshot } from '@zaloridebot/bot-core';
 import { buildServer } from './server.js';
 
 const server = buildServer({
   getSnapshot() {
-    const snapshot: BotSnapshot = { state: 'idle', groups: [] };
-    return snapshot;
+    return { state: 'idle', groups: [] };
   }
 });
 

@@ -1,12 +1,15 @@
 import Fastify from 'fastify';
 import websocket from '@fastify/websocket';
-import type { BotEventBus } from '@zaloridebot/bot-core';
 import { registerBotRoutes } from './routes/bot-routes.js';
 import { registerBotEventSocket } from './ws/bot-events-socket.js';
 
 export type DashboardSnapshot = {
   state: string;
-  groups: Array<{ id: string; name: string; isPinned: boolean; defaultReply?: string }>;
+  groups: Array<{ id: string; name: string; isPinned?: boolean; defaultReply?: string }>;
+};
+
+type BotEventStream = {
+  onAny(listener: (event: { type: string; timestamp: string; payload: Record<string, unknown> }) => void): () => void;
 };
 
 type Dependencies = {
@@ -14,7 +17,7 @@ type Dependencies = {
   startBot?(): Promise<void>;
   stopBot?(): Promise<void>;
   saveGroupConfig?(groupId: string, payload: unknown): Promise<void>;
-  eventBus?: BotEventBus;
+  eventBus?: BotEventStream;
 };
 
 export function buildServer(provider: Dependencies) {
